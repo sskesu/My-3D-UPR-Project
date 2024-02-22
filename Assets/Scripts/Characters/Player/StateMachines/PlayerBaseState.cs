@@ -52,7 +52,10 @@ public class PlayerBaseState : IState
 
         stateMachine.Player.Input.playerActions.Attack.performed += OnAttackPerformed;
         stateMachine.Player.Input.playerActions.Attack.canceled += OnAttackCanceled;
+
+        stateMachine.Player.Input.playerActions.Potion.started += OnPotionStarted;
     }
+
 
     protected virtual void RemoveInputActionsCallback()
     {
@@ -64,6 +67,8 @@ public class PlayerBaseState : IState
 
         stateMachine.Player.Input.playerActions.Attack.performed -= OnAttackPerformed;
         stateMachine.Player.Input.playerActions.Attack.canceled -= OnAttackCanceled;
+
+        stateMachine.Player.Input.playerActions.Potion.started -= OnPotionStarted;
     }
 
     protected virtual void OnRunStarted(InputAction.CallbackContext context)
@@ -89,6 +94,11 @@ public class PlayerBaseState : IState
     protected virtual void OnAttackCanceled(InputAction.CallbackContext obj)
     {
         stateMachine.IsAttacking = false;
+    }
+
+    private void OnPotionStarted(InputAction.CallbackContext context)
+    {
+        GameManager.Instance._player.GetComponent<Items>().UsePotion();
     }
 
     private void ReadMovementInput()

@@ -33,5 +33,9 @@ public class Health : MonoBehaviour
         return (float)health / maxHealth;
     }
 
-
+    public void healHP(int heal)
+    {
+        health = Mathf.Min(health + heal, maxHealth);
+        OnDamage?.Invoke();
+    }
 }
