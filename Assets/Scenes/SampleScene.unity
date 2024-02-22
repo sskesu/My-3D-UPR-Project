@@ -4058,6 +4058,7 @@ GameObject:
   - component: {fileID: 1212814535}
   - component: {fileID: 1212814537}
   - component: {fileID: 1212814538}
+  - component: {fileID: 1212814539}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4173,6 +4174,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+--- !u!114 &1212814539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212814532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 045d462c068273d49984c6f2c0960708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxPotion: 10
+  curPotion: 0
+  potionHeal: 40
+  potionCount: {fileID: 1599053095}
 --- !u!1 &1225164759
 GameObject:
   m_ObjectHideFlags: 0
