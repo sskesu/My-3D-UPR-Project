@@ -24,6 +24,14 @@ public class Health : MonoBehaviour
         if (health == 0)
             OnDie?.Invoke();
 
-        Debug.Log(health);
+        if (this.gameObject == GameManager.Instance._player)
+        {
+            UIManager.Instance.UpdateUI();
+        }
+    }
+
+    public float HPSliderValue()
+    {
+        return (float)health / maxHealth;
     }
 }

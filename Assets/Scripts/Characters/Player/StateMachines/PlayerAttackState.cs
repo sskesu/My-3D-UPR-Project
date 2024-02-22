@@ -23,19 +23,18 @@ public class PlayerAttackState : PlayerBaseState
         float normalizedTime = GetNormalizedTime(stateMachine.Player.Animator, "Attack");
         if (normalizedTime < 1f)
         {
-            if (normalizedTime >= stateMachine.Player.Data.AttackData.GetAttackInfo(stateMachine.ComboIndex).ForceTransitionTime) // ¿Œµ¶Ω∫
+            if (normalizedTime >= stateMachine.Player.Data.AttackData.GetAttackInfo(stateMachine.ComboIndex).ForceTransitionTime) 
                 TryApplyForce();
 
-            if (!alreadyAppliedDealing && normalizedTime >= stateMachine.Player.Data.AttackData.GetAttackInfo(stateMachine.ComboIndex).Dealing_Start_TransitionTime) // ¿Œµ¶Ω∫
+            if (!alreadyAppliedDealing && normalizedTime >= stateMachine.Player.Data.AttackData.GetAttackInfo(stateMachine.ComboIndex).Dealing_Start_TransitionTime) 
             {
                 stateMachine.Player.Weapon.SetAttack(stateMachine.Player.Data.AttackData.GetAttackInfo(stateMachine.ComboIndex).Damage,
-                    stateMachine.Player.Data.AttackData.GetAttackInfo(stateMachine.ComboIndex).Force); // ¿Œµ¶Ω∫ 2∞≥
-                Debug.Log("«√∑π¿ÃæÓæÓ≈√");
+                    stateMachine.Player.Data.AttackData.GetAttackInfo(stateMachine.ComboIndex).Force); 
                 stateMachine.Player.Weapon.gameObject.SetActive(true);
                 alreadyAppliedDealing = true;
             }
 
-            if (alreadyAppliedDealing && normalizedTime >= stateMachine.Player.Data.AttackData.GetAttackInfo(stateMachine.ComboIndex).Dealing_End_TransitionTime) // ¿Œµ¶Ω∫
+            if (alreadyAppliedDealing && normalizedTime >= stateMachine.Player.Data.AttackData.GetAttackInfo(stateMachine.ComboIndex).Dealing_End_TransitionTime) 
             {
                 stateMachine.Player.Weapon.gameObject.SetActive(false);
             }
@@ -51,7 +50,7 @@ public class PlayerAttackState : PlayerBaseState
         stateMachine.Player.ForceReceiver.Reset();  
 
         stateMachine.Player.ForceReceiver.AddForce(stateMachine.Player.transform.forward * 
-            stateMachine.Player.Data.AttackData.GetAttackInfo(stateMachine.ComboIndex).Force); // ¿Œµ¶Ω∫
+            stateMachine.Player.Data.AttackData.GetAttackInfo(stateMachine.ComboIndex).Force); 
 
     }
 
