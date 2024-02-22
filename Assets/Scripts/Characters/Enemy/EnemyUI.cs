@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class EnemyUI : MonoBehaviour
 {
     [SerializeField] private Slider hpSlider;
+    [SerializeField] private GameObject hpBar;
 
     private Health enemyHealth;
 
@@ -13,6 +14,11 @@ public class EnemyUI : MonoBehaviour
     {
         enemyHealth = GetComponent<Health>();
         enemyHealth.OnDamage += UpdateUI;
+    }
+
+    private void Update()
+    {
+        hpBar.transform.rotation = Camera.main.transform.rotation;
     }
 
     public void UpdateUI()
