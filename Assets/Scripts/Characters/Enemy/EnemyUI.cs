@@ -14,6 +14,7 @@ public class EnemyUI : MonoBehaviour
     {
         enemyHealth = GetComponent<Health>();
         enemyHealth.OnDamage += UpdateUI;
+        enemyHealth.OnDie += HpOff;
     }
 
     private void Update()
@@ -21,8 +22,13 @@ public class EnemyUI : MonoBehaviour
         hpBar.transform.rotation = Camera.main.transform.rotation;
     }
 
-    public void UpdateUI()
+    private void UpdateUI()
     {
         hpSlider.value = enemyHealth.HPSliderValue();
+    }
+
+    private void HpOff()
+    {
+        hpSlider.gameObject.SetActive(false);
     }
 }
