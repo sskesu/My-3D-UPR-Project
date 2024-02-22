@@ -26,6 +26,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         playerHealth = GameManager.Instance._player.GetComponent<Health>();
+        playerHealth.OnDamage += UpdateUI;
     }
 
     public void UpdateUI()

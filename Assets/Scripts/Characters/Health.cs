@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
     [SerializeField] private int maxHealth = 100;
     private int health;
     public event Action OnDie;
+    public event Action OnDamage;
 
     public bool IsDead => health == 0;
 
@@ -24,10 +25,7 @@ public class Health : MonoBehaviour
         if (health == 0)
             OnDie?.Invoke();
 
-        if (this.gameObject == GameManager.Instance._player)
-        {
-            UIManager.Instance.UpdateUI();
-        }
+        OnDamage?.Invoke();
     }
 
     public float HPSliderValue()
